@@ -1,0 +1,13 @@
+<div class="container mt-4" @todoAnimations>
+  <h3>输入内容，按回车键添加任务</h3>
+  <input #AddTodoInput type="text" class="form-control" placeholder="请在此处添加任务" />
+  <ul class="list-group">
+    <li
+      @slide
+      *ngFor="let item of todos | async"
+      class="list-group-item d-flex align-items-center justify-content-between">
+      {{item.title}}
+      <button (click)="deleteTodo(item.id)" type="button" class="btn btn-danger btn-sm">删除</button>
+    </li>
+  </ul>
+</div>
